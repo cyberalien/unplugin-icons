@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import MdiStore24Hour from 'virtual:icons/fa6-regular/comments'
-import FA6Comments from 'virtual:icons/fa6-regular/comments?height=4.25rem'
+import FA6Comments from 'virtual:icons/fa6-regular/comments?height=2.25rem'
 import RawFA6Comments from 'virtual:icons/fa6-regular/comments?raw'
-import RawFA6CommentsWithHeight from 'virtual:icons/fa6-regular/comments?raw&height=4.25rem'
-import RawFA6CommentsWithWidth from 'virtual:icons/fa6-regular/comments?raw&width=4.25em'
-import RawFA6CommentsWithSize from 'virtual:icons/fa6-regular/comments?raw&width=5em&height=4em'
+import RawFA6CommentsWithHeight from 'virtual:icons/fa6-regular/comments?raw&height=2.25rem'
+import RawFA6CommentsWithWidth from 'virtual:icons/fa6-regular/comments?raw&width=2.25em'
+import RawFA6CommentsWithSize from 'virtual:icons/fa6-regular/comments?raw&width=3em&height=2em'
 import RawFA6CommentsWithUnsetHeight from 'virtual:icons/fa6-regular/comments?raw&height=unset'
 import RawFA6CommentsWithUnsetWidth from 'virtual:icons/fa6-regular/comments?raw&width=unset'
 import RawFA6CommentsWithUnsetSize from 'virtual:icons/fa6-regular/comments?raw&width=unset&height=unset'
@@ -76,19 +76,19 @@ import VSCodePython from 'virtual:icons/vscode-icons/file-type-python'
       <span v-html="RawFA6CommentsWithHeight" />
       <div>
         <code style="opacity: 0.5">import RawFA6CommentsWithHeight from
-          'virtual:icons/fa6-regular/comments?raw&height=4.25rem'</code>
+          'virtual:icons/fa6-regular/comments?raw&height=2.25rem'</code>
         <pre>{{ RawFA6CommentsWithHeight }}</pre>
       </div>
       <span v-html="RawFA6CommentsWithWidth" />
       <div>
         <code style="opacity: 0.5">import RawFA6CommentsWithWidth from
-          'virtual:icons/fa6-regular/comments?raw&width=4.25em'</code>
+          'virtual:icons/fa6-regular/comments?raw&width=2.25em'</code>
         <pre>{{ RawFA6CommentsWithWidth }}</pre>
       </div>
       <span v-html="RawFA6CommentsWithSize" />
       <div>
         <code style="opacity: 0.5">import RawFA6CommentsWithSize from
-          'virtual:icons/fa6-regular/comments?raw&width=5em&height=4em'</code>
+          'virtual:icons/fa6-regular/comments?raw&width=3em&height=2em'</code>
         <pre>{{ RawFA6CommentsWithSize }}</pre>
       </div>
       <span v-html="RawFA6CommentsWithUnsetHeight" />
@@ -135,12 +135,16 @@ pre {
   display: grid;
   grid-template-columns: 100px 1fr;
   align-items: center;
+  gap: 0.5em;
 }
 
 .test-grid > span {
   display: inline-flex;
-  width: fit-content;
-  height: fit-content;
   box-shadow: 0 0 0 1px rgba(128, 128, 128, 0.5);
+}
+
+/* Make sure span does not stretch if SVG has width */
+.test-grid > span:has(svg[width]) {
+  width: fit-content;  
 }
 </style>
